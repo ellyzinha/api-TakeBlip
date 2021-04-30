@@ -2,23 +2,22 @@ package com.example.takeblip;
 
 import com.example.takeblip.model.Repository;
 import com.example.takeblip.service.RepositoryService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/takeBlip")
-@CrossOrigin(origins = "*")
+@RequestMapping("/api/takeblip")
 public class GithubController {
 
     @Autowired
     private RepositoryService repositoryService;
 
     //Endpoint que retorna uma lista de repositórios
+    /*
     @ApiOperation(value = "Lista de repositórios pelo owner")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Repositórios recuperados com sucesso",
@@ -27,12 +26,15 @@ public class GithubController {
             @ApiResponse(code = 500, message = "Erro interno no servidor"),
 
     })
-    @ApiImplicitParam(name = "owner", required = true, paramType = "header", value = "Owner do repositório")
-    @GetMapping("/{owner}/repos")
-    public ResponseEntity<Repository> getRepos(@PathVariable String owner) {
-        Repository repository = repositoryService.listRepositories(owner);
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "sort", required = true, paramType = "sort", value = "Parametros para busca dos repositórios"),
+            @ApiImplicitParam(name = "direction", required = true, paramType = "direction", value = "Parametros para busca dos repositórios")
+    })
+     */
 
-        return repository != null ? ResponseEntity.ok().body(repository) : ResponseEntity.notFound().build();
+    @GetMapping()
+    public List<Repository> getRepos() {
+        return repositoryService.listRepositories();
     }
 
 }

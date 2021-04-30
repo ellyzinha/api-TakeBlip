@@ -5,9 +5,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(url = "https://api.github.com/users", name = "github")
+import java.util.List;
+
+@FeignClient(url = "https://api.github.com/users/takenet", name = "github")
 public interface RepositoryService {
 
-    @GetMapping("{owner}/repos")
-    Repository listRepositories(@PathVariable("owner") String owner);
+    @GetMapping("/repos")
+    List<Repository> listRepositories();
 }
