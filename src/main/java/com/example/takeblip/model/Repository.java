@@ -3,13 +3,15 @@ package com.example.takeblip.model;
 public class Repository {
 
     private String description;
+    private String full_name;
     private String name;
     private String created_at;
     private String url;
     private String language;
 
-    public Repository(String description, String name, String created_at, String url, String language) {
+    public Repository(String description, String full_name, String name, String created_at, String url, String language) {
         this.description = description;
+        this.full_name = full_name;
         this.name = name;
         this.created_at = created_at;
         this.url = url;
@@ -28,9 +30,7 @@ public class Repository {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public String getCreated_at() {
         return created_at;
@@ -55,4 +55,8 @@ public class Repository {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    public String getFull_name() { return full_name; }
+
+    public void setFull_name(String full_name) { this.full_name = full_name; }
 }
