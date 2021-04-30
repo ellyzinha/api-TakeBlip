@@ -20,8 +20,8 @@ public class GithubController {
     //Endpoint que retorna uma lista de repositórios
 
     @GetMapping()
-    public List<Repository> getRepos(@RequestParam(required = false) String sort, @RequestParam(required = false) String direction) {
-        return repositoryService.listRepositories(sort, direction);
+    public List<Repository> getRepos(@RequestParam(required = false) String sort, @RequestParam(required = false) String direction, @RequestParam(required = false) String per_page) {
+        return repositoryService.listRepositories(sort, direction, per_page);
     }
 
 }

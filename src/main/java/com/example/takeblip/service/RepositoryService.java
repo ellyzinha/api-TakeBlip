@@ -11,6 +11,6 @@ import java.util.List;
 @FeignClient(url = "https://api.github.com/users/takenet", name = "github")
 public interface RepositoryService {
 
-    @GetMapping("/repos?sort={sort}&direction={direction}")
-    List<Repository> listRepositories(@RequestParam("sort") String sort, @RequestParam("direction") String direction);
+    @GetMapping("/repos?sort={sort}&direction={direction}&per_page={per_page}")
+    List<Repository> listRepositories(@RequestParam("sort") String sort, @RequestParam("direction") String direction, @RequestParam("per_page") String per_page);
 }
