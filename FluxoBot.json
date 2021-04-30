@@ -1,0 +1,1161 @@
+{
+  "identifier": "integracaogithub",
+  "accessKey": "aGw0WjRVTVI3TFB4NVdHSlJsODc=",
+  "messageReceivers": [
+    {
+      "type": "MessageReceiver"
+    }
+  ],
+  "notificationReceivers": [
+    {
+      "type": "DeskNotificationReceiver"
+    }
+  ],
+  "serviceProviderType": "ServiceProvider",
+  "settings": {
+    "flow": {
+      "id": "f9974e64-ecb0-4d5d-9486-c51ceef1d0c6",
+      "states": [
+        {
+          "id": "onboarding",
+          "root": true,
+          "name": "Início",
+          "inputActions": [],
+          "input": {
+            "bypass": false,
+            "validation": {
+              "rule": "text",
+              "error": "texto"
+            }
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "welcome",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "exists",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "stateId": "welcome"
+            }
+          ]
+        },
+        {
+          "id": "fallback",
+          "name": "Exceções",
+          "inputActions": [],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "error",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "matches",
+                  "values": [
+                    ".*"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "onboarding"
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "name": "Boas Vindas.",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "4be1fc37-a786-4cce-a23c-117600df5957",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "dc03ab0c-1705-48e0-ba11-03c4841fbe13",
+                "type": "text/plain",
+                "content": "Olá, espero que esteja tudo bem. Sou a Lora responsável por passar os valores da Take.",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "d7f2ae2b-d6dd-4987-9cb3-b1667ace7dfe",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "00000000-0000-0000-0000-000000000001",
+                "type": "text/plain",
+                "content": "Ok. Entendo. Mesmo eu sendo um robô e não tendo consciência sobre o que é valores mas posso te ajudar de alguma forma.",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "6bd6182d-b19c-4761-8c6c-86e4dccf7b18",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "e15f504a-f20d-4533-9dc2-4efd5a9eba5d",
+                "type": "text/plain",
+                "content": "Vamos lá..",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "38edcc22-0a25-4e54-a02c-131ccfaac351",
+                "type": "text/plain",
+                "content": "A cultura Take tem como base 6 valores que são:",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "stateId": "68c542b8-714e-47c6-bfbd-b56832e59a28"
+            }
+          ]
+        },
+        {
+          "id": "error",
+          "name": "Erro padrão",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "00000000-0000-0000-0000-000000000002",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "00000000-0000-0000-0000-000000000003",
+                "type": "text/plain",
+                "content": "Desculpe, não consegui entender!",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "onboarding"
+            }
+          ]
+        },
+        {
+          "id": "68c542b8-714e-47c6-bfbd-b56832e59a28",
+          "root": false,
+          "name": "Valores",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "da626969-89e1-4eb1-a4ad-cbf7122e74e9",
+                "type": "application/vnd.lime.collection+json",
+                "content": {
+                  "itemType": "application/vnd.lime.document-select+json",
+                  "items": [
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Be",
+                          "text": "Pessoa em 1° lugar",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "💙 Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "id": 0,
+                      "editing": false
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Team",
+                          "text": "Em nosso time, cada pessoa dá o seu melhor",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "🏳️ Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 1
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Excellence",
+                          "text": "Excelente é o nosso ponto de partida",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "⭐ Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 2
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Charge",
+                          "text": "Apropriar-se para fazer a diferença",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "⚡ Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 3
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Simple",
+                          "text": "Simplicidade é o último grau de sofisticação",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "🎯 Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 4
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Take.Higher",
+                          "text": "Pensar grande e ir além",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "🚀 Saber mais"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 5
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "Desafio",
+                          "text": "----",
+                          "type": "image/jpeg",
+                          "uri": "https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/2e3ff2b4-a8c6-4188-bc0c-0f23531739b2",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [
+                        {
+                          "label": {
+                            "type": "text/plain",
+                            "value": "Fazer desafio"
+                          },
+                          "value": null
+                        }
+                      ],
+                      "editing": false,
+                      "id": 6
+                    }
+                  ]
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": false
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "2768026c-d348-4853-a0d9-deb110fa9cfc",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "💙 Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "de2aeb3b-6f29-431e-a96f-7395e4c920cb",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🏳️ Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "7feac9a5-ce1e-45e2-93f3-ade3f759f5bb",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "⭐ Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "b324ec82-d7d3-4060-8bf7-aab3181495ac",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "⚡ Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "b5dbf547-099f-48e7-b5a6-f8f70619e87a",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🎯 Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "cb10b68c-35d5-4937-91b4-9f0fe0eb0c13",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🚀 Saber mais"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "d8fb65ec-6d43-4794-aae1-4e8eba3bc6d0",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "Fazer desafio"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "fallback"
+            }
+          ]
+        },
+        {
+          "id": "2768026c-d348-4853-a0d9-deb110fa9cfc",
+          "root": false,
+          "name": "Take.Be",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "ddc514cf-bb3b-4345-bec5-c4a0a3d90443",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "8ffb902c-609b-4df9-8770-741ea6c2d461",
+                "type": "text/plain",
+                "content": "A Take é feita por pessoas e para pessoas. Nossas relações são transparentes e humanizadas.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "81444a32-e629-4156-a7ad-ffa2ae442190",
+                "type": "text/plain",
+                "content": " Cada cliente, cada parceiro e cada Take.Ser é valorizado e respeitado em sua individualidade e está presente em cada bit de nossa empresa.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "de2aeb3b-6f29-431e-a96f-7395e4c920cb",
+          "root": false,
+          "name": "Take.Team",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "f9f688b1-e59a-4d4f-b643-0d7bf1e9f2c7",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "96f29f2e-76d6-4ad9-801c-f0dcf5f641ca",
+                "type": "text/plain",
+                "content": "Sabemos que o que faz uma equipe incrível são pessoas incríveis em cooperação. Assim, cada Take.ser busca cumprir sua parte para garantir a vitória do time.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "7feac9a5-ce1e-45e2-93f3-ade3f759f5bb",
+          "root": false,
+          "name": "Take.Excellence",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "c4cd4c93-79e7-4fa9-b78e-9f21c8a25488",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "90f46059-a6cc-41a9-98b7-cfb00ae35177",
+                "type": "text/plain",
+                "content": "Com nosso espírito geek e nossa disposição para aprender e crescer, buscamos estar sempre um passo a frente e superarmos os mais exigentes padrões.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "b324ec82-d7d3-4060-8bf7-aab3181495ac",
+          "root": false,
+          "name": "Take.Charge",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "f588ce63-bd11-4150-9dfc-4d8ce9ea29fc",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "e8122f1e-8a6e-4845-82ac-6eab3dcbdc0c",
+                "type": "text/plain",
+                "content": "Apostamos em profissionais que chamam a responsabilidade para si e que, sem medo de ousar, transformem o mundo a sua volta, com muita competência e criatividade!\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "b5dbf547-099f-48e7-b5a6-f8f70619e87a",
+          "root": false,
+          "name": "Take.Simple",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "e2e4b837-a42b-4c4b-a136-defc4a951e5f",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "e08d9154-dc2e-4288-9127-d55c21c7e89f",
+                "type": "text/plain",
+                "content": "Mantemos o foco no essencial. Menos é mais.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "cb10b68c-35d5-4937-91b4-9f0fe0eb0c13",
+          "root": false,
+          "name": "Take.Higher",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "b3a16fd5-f4e7-4c9e-8e92-c610e287d7ba",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "8b49e273-119a-498f-81af-fe4d027182ad",
+                "type": "text/plain",
+                "content": "Não temos medo de sonhar grande, pois sabemos que temos talento e determinação para realizar coisas incríveis!\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e"
+            }
+          ]
+        },
+        {
+          "id": "d8fb65ec-6d43-4794-aae1-4e8eba3bc6d0",
+          "root": false,
+          "name": "Fazer Desafio",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "0b09e787-2e21-4509-a6b8-eb28e482b390",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "76f33dda-f07d-443e-85fa-c09ee649b61a",
+                "type": "text/plain",
+                "content": "Você deve criar uma API que faça integração com a API pública do GitHub, e um chatbot em nossa plataforma que consuma sua API para exibir um carrossel com informações sobre os repositórios da Take no GitHub. Para criar a API, você pode usar C#, Java ou Javascript.\n",
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": true
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "8a39dfd6-6f94-4ae1-bc53-acb20d1c979f"
+            }
+          ]
+        },
+        {
+          "id": "cf02623b-accc-4dbe-aa90-1f31c7cbce3e",
+          "root": false,
+          "name": "Saber Mais",
+          "inputActions": [
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "e3e4dbfb-c040-4605-8e95-a7852066e4c3",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "8cf78124-ad16-4d46-9a11-e994d915e602",
+                "type": "application/vnd.lime.select+json",
+                "content": {
+                  "text": "Se quiser saber mais sobre outros valores é só falar",
+                  "options": [
+                    {
+                      "text": "💙 Be",
+                      "previewText": "💙 Be",
+                      "value": null,
+                      "index": 0,
+                      "type": null
+                    },
+                    {
+                      "text": "🏳️ Team",
+                      "previewText": "🏳️ Team",
+                      "value": null,
+                      "index": 1,
+                      "type": null
+                    },
+                    {
+                      "text": "⭐ Excellence",
+                      "previewText": "⭐ Excellence",
+                      "value": null,
+                      "index": 2,
+                      "type": null
+                    },
+                    {
+                      "index": -1,
+                      "text": "⚡ Charge",
+                      "previewText": "⚡ Charge",
+                      "type": null,
+                      "value": null
+                    },
+                    {
+                      "index": -1,
+                      "text": "🎯 Simple",
+                      "previewText": "🎯 Simple",
+                      "type": null,
+                      "value": null
+                    },
+                    {
+                      "index": -1,
+                      "text": "🚀 Higher",
+                      "previewText": "🚀 Higher",
+                      "type": null,
+                      "value": null
+                    }
+                  ]
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": false
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "2768026c-d348-4853-a0d9-deb110fa9cfc",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "💙 Be"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "de2aeb3b-6f29-431e-a96f-7395e4c920cb",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🏳️ Team"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "7feac9a5-ce1e-45e2-93f3-ade3f759f5bb",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "⭐ Excellence"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "b324ec82-d7d3-4060-8bf7-aab3181495ac",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "⚡ Charge"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "b5dbf547-099f-48e7-b5a6-f8f70619e87a",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🎯 Simple"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "cb10b68c-35d5-4937-91b4-9f0fe0eb0c13",
+              "conditions": [
+                {
+                  "source": "input",
+                  "comparison": "contains",
+                  "values": [
+                    "🚀 Higher"
+                  ]
+                }
+              ]
+            },
+            {
+              "stateId": "fallback"
+            }
+          ]
+        },
+        {
+          "id": "8a39dfd6-6f94-4ae1-bc53-acb20d1c979f",
+          "root": false,
+          "name": "Repositórios",
+          "inputActions": [
+            {
+              "type": "ProcessHttp",
+              "settings": {
+                "headers": {},
+                "method": "GET",
+                "uri": "http://localhost:9999/api/takeblip?sort=created&direction=asc&per_page=5",
+                "responseStatusVariable": "status",
+                "responseBodyVariable": "response"
+              },
+              "conditions": []
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "9b51aed5-b053-4d6a-8297-81df476edaeb",
+                "type": "application/vnd.lime.chatstate+json",
+                "content": {
+                  "state": "composing",
+                  "interval": 1000
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "settings": {
+                "id": "d5e20b46-e7cb-4951-b11b-e0984dab648c",
+                "type": "application/vnd.lime.collection+json",
+                "content": {
+                  "itemType": "application/vnd.lime.document-select+json",
+                  "items": [
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "{{response@full_name}}",
+                          "text": "{{response@description}}",
+                          "type": "image/jpeg",
+                          "uri": "https://avatars.githubusercontent.com/u/4369522?s=200&v=4",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [],
+                      "id": 0,
+                      "editing": false
+                    },
+                    {
+                      "header": {
+                        "type": "application/vnd.lime.media-link+json",
+                        "value": {
+                          "title": "{{response@full_name}}",
+                          "text": "{{response@description}}",
+                          "type": "image/jpeg",
+                          "uri": "https://avatars.githubusercontent.com/u/4369522?s=200&v=4",
+                          "aspectRatio": "2:1"
+                        }
+                      },
+                      "options": [],
+                      "editing": false
+                    }
+                  ]
+                },
+                "metadata": {
+                  "#stateName": "{{state.name}}",
+                  "#stateId": "{{state.id}}",
+                  "#messageId": "{{input.message@id}}",
+                  "#previousStateId": "{{state.previous.id}}",
+                  "#previousStateName": "{{state.previous.name}}"
+                }
+              }
+            }
+          ],
+          "input": {
+            "bypass": false
+          },
+          "outputActions": [],
+          "outputs": [
+            {
+              "stateId": "fallback"
+            }
+          ]
+        }
+      ],
+      "configuration": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "false",
+        "builder:#localTimeZone": "E. South America Standard Time"
+      },
+      "inputActions": [],
+      "outputActions": []
+    }
+  },
+  "settingsType": "Settings"
+}
